@@ -1,0 +1,19 @@
+@font-face {
+  font-family: Poppins;
+  src: url(../font/Poppins-Light.ttf);
+  font-display: fallback; /* Define how the browser behaves during download */
+}
+
+@font-face {
+  font-family: "Poppins-bold";
+  src: url(../font/Poppins-Black.ttf);
+  font-display: fallback; /* Define how the browser behaves during download */
+}
+
+// estilos para notificaciones
+@import "../../node_modules/react-toastify/dist/ReactToastify.min.css";
+
+@import "./bootstrap_imports";
+@import "./components_imports";
+
+@import "./global";
