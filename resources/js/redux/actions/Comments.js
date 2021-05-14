@@ -5,7 +5,7 @@ export const GET__COMMENTS__SUCCESS = "GET__COMMENTS__SUCCESS"
 export const GET__COMMENTS__ERROR = "GET__COMMENTS__ERROR"
 
 export const getComments =
-  ({url, ended = () => {}}) =>
+  ({url = "comments", ended = () => {}}) =>
   (dispatch) => {
     if (url) {
       // limpia la url - elimina url base de api
@@ -13,7 +13,7 @@ export const getComments =
     }
 
     apiCall({
-      url: url || "comments",
+      url: url,
       method: "get",
     })
       .then((response) => {
