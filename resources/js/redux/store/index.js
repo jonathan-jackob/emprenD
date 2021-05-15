@@ -5,15 +5,18 @@ import storage from "redux-persist/lib/storage/session"
 
 import AuthReducer from "../reducers/Auth"
 import CommentsReducer from "../reducers/Comments"
+import ErrorsReducer from "../errors"
 
 const rootReducer = combineReducers({
   auth: AuthReducer,
   comments: CommentsReducer,
+  errors: ErrorsReducer,
 })
 
 const persistConfig = {
   key: "root",
   storage,
+  blacklist: ["errors"],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

@@ -1,17 +1,17 @@
 import {
   CommentsDataInit,
-  GET__COMMENTS__ERROR,
   GET__COMMENTS__SUCCESS,
+  SET__RESET__COMMENTS,
 } from "../actions/Comments"
 
-const AuthReducer = (state = CommentsDataInit, action) => {
+const CommentsReducer = (state = CommentsDataInit, action) => {
   switch (action.type) {
     case GET__COMMENTS__SUCCESS: {
-      return {...state, ...action.payload}
+      return {...action.payload}
     }
 
-    case GET__COMMENTS__ERROR: {
-      return {...state, ...action.payload}
+    case SET__RESET__COMMENTS: {
+      return CommentsDataInit
     }
 
     default:
@@ -19,4 +19,4 @@ const AuthReducer = (state = CommentsDataInit, action) => {
   }
 }
 
-export default AuthReducer
+export default CommentsReducer

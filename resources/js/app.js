@@ -1,4 +1,5 @@
-require("bootstrap/dist/js/bootstrap.bundle.min")
+require("@popperjs/core")
+require("bootstrap")
 import React from "react"
 import ReactDOM from "react-dom"
 import {ToastContainer} from "react-toastify"
@@ -11,7 +12,7 @@ function App() {
   const {store, persistor} = generateStore()
   return (
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
+      <PersistGate persistor={persistor} loading={null}>
         <Router />
         <ToastContainer />
       </PersistGate>

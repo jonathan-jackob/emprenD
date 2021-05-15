@@ -1,17 +1,17 @@
 import {
   AuthDataInit,
-  GET__LOGIN__ERROR,
-  GET__LOGIN__SUCCESS,
+  SET__LOGIN__SUCCESS,
+  SET__CLEAN__AUTH,
 } from "../actions/Auth"
 
 const AuthReducer = (state = AuthDataInit, action) => {
   switch (action.type) {
-    case GET__LOGIN__SUCCESS: {
+    case SET__LOGIN__SUCCESS: {
       return {...state, ...action.payload}
     }
 
-    case GET__LOGIN__ERROR: {
-      return {...AuthDataInit}
+    case SET__CLEAN__AUTH: {
+      return AuthDataInit
     }
 
     default:

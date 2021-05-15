@@ -1,22 +1,25 @@
-// import {useDispatch} from "react-redux"
 import {toast} from "react-toastify"
-import {endSession} from "../../Redux/actions/Auth"
-// const dispatch = useDispatch()
 
+/**
+ * recibe los errores generados en las peticiones a la API
+ * muestra un toast al usuario con el error capturado
+ *
+ * @param {object} response
+ */
 export default function (response) {
   let title = "Error interno, vuelve a intentarlo mas tarde."
 
   switch (response?.status) {
-    case 401:
-      {
-        title = "Su sesión ha expirado, vuelva a iniciar sesión"
-        window.sessionStorage.clear()
-        setTimeout(() => {
-          window.location.replace("/login")
-        }, 3000)
-      }
+    case 401: //usuario no autorizado -cierra la sesión y redirecciona al login
+      title = "Su sesión ha expirado, vuelva a iniciar sesión"
+
       break
-    case 422:
+
+    case 403: //usuario no autorizado -cierra la sesión y redirecciona al login
+      title = "Su sesión ha expirado, vuelva a iniciar sesión"
+
+      break
+    case 422: // errores de validación - muestra el primer error al usuario
       {
         for (const err in response.data.errors) {
           const element = response.data.errors[err]
@@ -26,11 +29,9 @@ export default function (response) {
       }
       break
     default: {
-      //xd
+      //
     }
   }
-
-  console.log(response)
 
   toast.error(title, {
     position: toast.POSITION.TOP_RIGHT,

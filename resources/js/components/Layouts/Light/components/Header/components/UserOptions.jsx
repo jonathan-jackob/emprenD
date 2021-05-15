@@ -1,8 +1,13 @@
 import React from "react"
 import {useDispatch, useSelector} from "react-redux"
+import {Link} from "react-router-dom"
 import {FaUser} from "react-icons/fa"
 import {setLogout} from "../../../../../../Redux/actions/Auth"
 
+/**
+ * menu para usuario
+ * boton con links [perfil, cerrar sesion]
+ */
 const UserOptions = () => {
   const auth = useSelector((state) => state.auth)
   const dispatch = useDispatch()
@@ -21,9 +26,9 @@ const UserOptions = () => {
       </button>
       <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li>
-          <a className="dropdown-item" href="#">
+          <Link className="dropdown-item" to="/profile">
             Perfil
-          </a>
+          </Link>
         </li>
         <li>
           <a

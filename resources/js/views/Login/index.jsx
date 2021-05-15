@@ -10,6 +10,9 @@ import LayoutDark from "../../components/Layouts/Dark"
 import ButtonLoad from "../../components/ButtonLoad"
 import Logo from "../../components/Logo"
 
+/**
+ * muestra el formulario para iniciare sesión
+ */
 const Login = () => {
   const [loader, setLoader] = useState(false)
 

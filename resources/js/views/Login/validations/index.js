@@ -1,3 +1,7 @@
+/**
+ * exporta objeto con las validaciones del formulario login
+ */
+
 export const InputValidation = {
   email: {
     required: {value: true, message: "El email es requerido"},

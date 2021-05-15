@@ -5,11 +5,17 @@ import {useDispatch} from "react-redux"
 import {FaArrowRight} from "react-icons/fa"
 
 import {apiCall} from "../../../../Helpers/apiCall"
-import {getComments} from "../../../../Redux/actions/Comments"
 import ButtonLoad from "../../../ButtonLoad"
 import {toast} from "react-toastify"
 
-const CommentForm = ({className}) => {
+/**
+ * Componente el cual retorna un textarea en donde puede añadir comentarios el usuario con sesión activa
+ *
+ * @param {function} actionComment - acción que queremos ejecutar después de agregar un comentario
+ * @param {object} props todos los props recibidos se asignan al contenedor del componente
+ * @returns
+ */
+const CommentForm = ({actionComment, ...rest}) => {
   const dispatch = useDispatch()
   const [loader, setLoader] = useState(false)
 
@@ -30,8 +36,11 @@ const CommentForm = ({className}) => {
       data,
     })
       .then(() => {
-        dispatch(getComments({url: "comments"}))
+        // solicita los comentario, para refrescar los datos con el nuevo mensaje
+        dispatch(actionComment())
+        //limpia el formulario
         reset()
+        // muestra un mensaje de éxito
         toast.success("Idea compartida, gracias por compartir.", {
           autoClose: 5000,
         })
@@ -42,7 +51,7 @@ const CommentForm = ({className}) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={className}>
+    <form onSubmit={handleSubmit(onSubmit)} {...rest}>
       <div>
         <textarea
           className={`comment-add-textarea form-control ${
@@ -77,7 +86,7 @@ const CommentForm = ({className}) => {
 }
 
 CommentForm.propTypes = {
-  className: PropTypes.string,
+  actionComment: PropTypes.func.isRequired,
 }
 
 export default CommentForm
