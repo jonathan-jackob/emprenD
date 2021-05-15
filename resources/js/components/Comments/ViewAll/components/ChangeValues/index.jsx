@@ -2,8 +2,9 @@ import React, {useEffect} from "react"
 import PropTypes from "prop-types"
 import {Tooltip} from "bootstrap"
 import {FaEdit, FaTrash} from "react-icons/fa"
+import ModalDelete from "./components/ModalDelete"
 
-const ChangeValues = (props) => {
+const ChangeValues = ({comment_id, comment, afterChangeComments, ...rest}) => {
   useEffect(() => {
     const tooltipTriggerList = [].slice.call(
       document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -12,22 +13,33 @@ const ChangeValues = (props) => {
       return new Tooltip(tooltipTriggerEl)
     })
   }, [])
+
   return (
-    <div {...props}>
-      <FaTrash
-        size={25}
-        className="text-danger cursor-pointer"
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="Eliminar comentarios"
+    <div {...rest}>
+      <ModalDelete
+        id={comment_id}
+        comment={comment}
+        afterDeleteComment={afterChangeComments}
+        openModal={
+          <button
+            className="btn text-danger p-1 no-outline"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Eliminar comentarios"
+          >
+            <FaTrash size={25} className="" />
+          </button>
+        }
       />
-      <FaEdit
-        size={28}
-        className="text-warning cursor-pointer"
+
+      <button
+        className="btn text-warning p-1 no-outline"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Editar comentario"
-      />
+      >
+        <FaEdit size={25} className="" />
+      </button>
     </div>
   )
 }

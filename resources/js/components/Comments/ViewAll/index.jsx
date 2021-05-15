@@ -5,16 +5,25 @@ import Pagination from "./components/Pagination"
 import Comment from "./components/Comment"
 import ContentDate from "./components/ContentDate"
 import {FaUser} from "react-icons/fa"
+import ChangeValues from "./components/ChangeValues"
+import {useSelector} from "react-redux"
 
 /**
  * rederiza los comentarios
  *
  * @param {array} data - estructura donde se reciben los comentarios
  * @param {object} links - se esperan los links para generar la paginación
- * @param {bool} changeValues - si desea habilitar la edición o eliminación de mensajes
+ * @param {bool} optionsComment - si desea habilitar la edición o eliminación de mensajes
  * @returns
  */
-const CommentsViewAll = ({data, links, changeValues}) => {
+const CommentsViewAll = ({
+  data,
+  links,
+  optionsComment,
+  afterChangeComments,
+}) => {
+  const auth = useSelector((state) => state.auth)
+
   return (
     <>
       {data?.length > 0 && (
@@ -32,10 +41,20 @@ const CommentsViewAll = ({data, links, changeValues}) => {
               </div>
 
               <Comment
-                className="col-12 col-sm-8 col-md-9"
+                className="col-12 col-sm-8 col-md-9 "
                 body={comment.body}
-                changeValues={changeValues}
               />
+
+              {optionsComment && auth.id == comment.user_id && (
+                <div className="position-relative col-12 col-sm-1 d-flex flex-sm-column justify-content-end justify-content-sm-center">
+                  <ChangeValues
+                    className=""
+                    comment_id={comment.id}
+                    comment={comment.body}
+                    afterChangeComments={afterChangeComments}
+                  />
+                </div>
+              )}
 
               <ContentDate
                 className="col-12 col-sm-11 text-gray-light text-end"
@@ -54,13 +73,15 @@ const CommentsViewAll = ({data, links, changeValues}) => {
 
 CommentsViewAll.defaultProps = {
   links: undefined,
-  changeValues: false,
+  optionsComment: false,
+  afterChangeComments: () => {},
 }
 
 CommentsViewAll.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.array.isRequired,
   links: PropTypes.object,
-  changeValues: PropTypes.bool,
+  optionsComment: PropTypes.bool,
+  afterChangeComments: PropTypes.func,
 }
 
 export default CommentsViewAll

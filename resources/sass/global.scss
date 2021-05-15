@@ -6,10 +6,6 @@
   min-height: 100vh;
 }
 
-.cursor-pointer {
-  cursor: pointer;
-}
-
 .font-bold {
   font-family: "Poppins-bold";
 }
@@ -20,4 +16,10 @@
 
 .border-2 {
   border-width: 2px;
+}
+
+.btn.no-outline,
+.btn.no-outline:focus {
+  outline: none;
+  box-shadow: none;
 }

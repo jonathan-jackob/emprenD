@@ -6,16 +6,21 @@ $font-family-sans-serif: "Poppins", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
+$primary: #0d6efd;
+$success: #198754;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #dc3545;
 $dark: #333333;
 $secondary: #fe6261;
 $gris-light: #efefef;
 
 $theme-colors: (
-  "success": #198754,
-  "info": #0dcaf0,
-  "warning": #ffc107,
-  "danger": #dc3545,
-  "light": #f8f9fa,
+  "primary": $primary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
   "dark": $dark,
   "secondary": $secondary,
   "gray-light": $gris-light,

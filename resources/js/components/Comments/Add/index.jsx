@@ -7,9 +7,9 @@ import CommentForm from "./components/CommentForm"
  * contenedor con titulo
  * y componete para agregar comentarios
  *
- * @param {function} actionComment - acción que queremos ejecutar después de agregar un comentario
+ * @param {function} afterAddComment - acción que queremos ejecutar después de agregar un comentario
  */
-const CommentAdd = ({actionComment}) => {
+const CommentAdd = ({afterAddComment}) => {
   return (
     <div className="container mb-5">
       <div className="row">
@@ -17,13 +17,16 @@ const CommentAdd = ({actionComment}) => {
           <Title value="COMPARTE TU IDEA" />
         </div>
 
-        <CommentForm className="mt-3 col-12" actionComment={actionComment} />
+        <CommentForm
+          className="mt-3 col-12"
+          afterAddComment={afterAddComment}
+        />
       </div>
     </div>
   )
 }
 CommentAdd.propTypes = {
-  actionComment: PropTypes.func.isRequired,
+  afterAddComment: PropTypes.func.isRequired,
 }
 
 export default CommentAdd

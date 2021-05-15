@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import ChangeValues from "../ChangeValues"
+import {useSelector} from "react-redux"
 
 /**
  * renderiza el comentario en un recuadro
@@ -9,12 +10,13 @@ import ChangeValues from "../ChangeValues"
  * @param {object} rest - resto de props se asigna al contenedor del componente
  * @returns
  */
-const Comment = ({body, changeValues, ...rest}) => {
+const Comment = ({body, ...rest}) => {
+  const auth = useSelector((state) => state.auth)
+
   return (
     <div {...rest}>
       <div className="comments--content--comment bg-gray-light mb-1 px-2 py-3 position-relative">
         {body}
-        {/* <ChangeValues className="position-absolute bottom-0 end-0" /> */}
       </div>
     </div>
   )
@@ -22,7 +24,6 @@ const Comment = ({body, changeValues, ...rest}) => {
 
 Comment.propTypes = {
   body: PropTypes.string.isRequired,
-  changeValues: PropTypes.bool,
 }
 
 export default Comment

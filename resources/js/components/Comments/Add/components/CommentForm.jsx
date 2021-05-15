@@ -1,7 +1,6 @@
 import React, {useState} from "react"
 import PropTypes from "prop-types"
 import {useForm} from "react-hook-form"
-import {useDispatch} from "react-redux"
 import {FaArrowRight} from "react-icons/fa"
 
 import {apiCall} from "../../../../Helpers/apiCall"
@@ -11,12 +10,11 @@ import {toast} from "react-toastify"
 /**
  * Componente el cual retorna un textarea en donde puede añadir comentarios el usuario con sesión activa
  *
- * @param {function} actionComment - acción que queremos ejecutar después de agregar un comentario
+ * @param {function} actionComment - callback después de agregar comentario correctamente
  * @param {object} props todos los props recibidos se asignan al contenedor del componente
  * @returns
  */
-const CommentForm = ({actionComment, ...rest}) => {
-  const dispatch = useDispatch()
+const CommentForm = ({afterAddComment, ...rest}) => {
   const [loader, setLoader] = useState(false)
 
   const {
@@ -28,7 +26,6 @@ const CommentForm = ({actionComment, ...rest}) => {
 
   const onSubmit = (data) => {
     setLoader(true)
-    console.log(data)
 
     apiCall({
       url: "comments",
@@ -36,12 +33,12 @@ const CommentForm = ({actionComment, ...rest}) => {
       data,
     })
       .then(() => {
-        // solicita los comentario, para refrescar los datos con el nuevo mensaje
-        dispatch(actionComment())
+        // se ejecuta el callback
+        afterAddComment()
         //limpia el formulario
         reset()
         // muestra un mensaje de éxito
-        toast.success("Idea compartida, gracias por compartir.", {
+        toast.success("Tu idea fue compartida, gracias por compartir.", {
           autoClose: 5000,
         })
       })
@@ -86,7 +83,7 @@ const CommentForm = ({actionComment, ...rest}) => {
 }
 
 CommentForm.propTypes = {
-  actionComment: PropTypes.func.isRequired,
+  afterAddComment: PropTypes.func.isRequired,
 }
 
 export default CommentForm

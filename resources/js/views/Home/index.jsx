@@ -16,16 +16,25 @@ const Home = () => {
   const dispatch = useDispatch()
   const comments = useSelector((state) => state.comments)
 
-  useEffect(() => {
-    //   se obtienen los comments mas recientes al cargar la pagina
+  const loadComments = () => {
+    //   se obtienen los comments mas recientes
     dispatch(getComments())
+  }
+
+  useEffect(() => {
+    loadComments()
   }, [])
 
   return (
     <LayoutLight>
-      <CommentAdd actionComment={getComments} />
+      <CommentAdd afterAddComment={loadComments} />
 
-      <CommentViewAll data={comments.data} links={comments.links} />
+      <CommentViewAll
+        data={comments.data}
+        links={comments.links}
+        optionsComment
+        afterChangeComments={loadComments}
+      />
     </LayoutLight>
   )
 }
