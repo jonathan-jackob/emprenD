@@ -30,8 +30,8 @@ const Home = () => {
       <CommentAdd afterAddComment={loadComments} />
 
       <CommentViewAll
-        data={comments.data}
-        links={comments.links}
+        data={comments?.data}
+        links={comments?.links}
         optionsComment
         afterChangeComments={loadComments}
       />

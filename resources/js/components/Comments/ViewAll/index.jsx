@@ -26,7 +26,7 @@ const CommentsViewAll = ({
 
   return (
     <>
-      {data?.length > 0 && (
+      {data.length > 0 && (
         <section
           className="container bg-dark p-3 fs-6 fs-md-5 fs-lg-4"
           id="comments"
@@ -72,7 +72,8 @@ const CommentsViewAll = ({
 }
 
 CommentsViewAll.defaultProps = {
-  links: undefined,
+  data: [],
+  links: null,
   optionsComment: false,
   afterChangeComments: () => {},
 }

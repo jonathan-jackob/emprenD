@@ -14,11 +14,15 @@ import UserInfo from "./components/UserInfo"
  */
 const Profile = () => {
   const comments = useSelector((state) => state.comments)
-  //   const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-  //   useEffect(() => {
-  //     dispatch(getUserComments())
-  //   }, [])
+  const loadComments = () => {
+    dispatch(getUserComments())
+  }
+
+  useEffect(() => {
+    dispatch(getUserComments())
+  }, [])
 
   return (
     <LayoutLight title="Perfil">
@@ -28,15 +32,24 @@ const Profile = () => {
             <UserInfo />
           </div>
 
-          <CommentAdd actionComment={getUserComments} />
+          <CommentAdd afterAddComment={loadComments} />
 
-          {/* <div className="col-9 col-md-7 col-lg-8">
-              <Title value="TUS IDEAS COMPARTIDAS" />
-            </div>
+          {comments?.data?.length > 0 && (
+            <>
+              <div className="col-9 col-md-7 col-lg-8">
+                <Title value="TUS IDEAS COMPARTIDAS" />
+              </div>
 
-            <div className="col-12 mt-2">
-              <CommentsViewAll data={comments.data} links={comments.links} />
-            </div> */}
+              <div className="col-12 mt-2">
+                <CommentsViewAll
+                  data={comments?.data}
+                  links={comments?.links}
+                  optionsComment
+                  afterChangeComments={loadComments}
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </LayoutLight>

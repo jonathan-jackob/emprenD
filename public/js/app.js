@@ -5567,9 +5567,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "setLogout": () => (/* binding */ setLogout),
 /* harmony export */   "setCleanSession": () => (/* binding */ setCleanSession)
 /* harmony export */ });
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
 /* harmony import */ var _Helpers_apiCall__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Helpers/apiCall */ "./resources/js/Helpers/apiCall/index.js");
-
+// import {toast} from "react-toastify"
 
 var AuthDataInit = {};
 var SET__LOGIN__SUCCESS = "SET__LOGIN__SUCCESS";
@@ -5625,9 +5624,10 @@ var setLogout = function setLogout() {
       url: "logout",
       method: "post",
       showErrors: false
-    }).then(function () {
-      react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.info("Hasta pronto...");
-    })["finally"](function () {
+    }) // .then(() => {
+    //   toast.info("Hasta pronto...")
+    // })
+    ["finally"](function () {
       dispatch({
         type: SET__CLEAN__AUTH,
         payload: AuthDataInit
@@ -6205,12 +6205,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
 /* harmony import */ var _Helpers_apiCall__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../Helpers/apiCall */ "./resources/js/Helpers/apiCall/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
 /* harmony import */ var _ButtonLoad__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ButtonLoad */ "./resources/js/components/ButtonLoad/index.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../Modal */ "./resources/js/components/Modal/index.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -6222,6 +6222,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -6259,7 +6260,7 @@ var ModalDelete = function ModalDelete(_ref) {
       method: "delete"
     }).then(function () {
       afterDeleteComment();
-      react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.success("Comentario eliminado.");
+      react_toastify__WEBPACK_IMPORTED_MODULE_7__.toast.success("Comentario eliminado.");
       myModal.hide();
     })["finally"](function () {
       setLoader(false);
@@ -6267,65 +6268,40 @@ var ModalDelete = function ModalDelete(_ref) {
   };
 
   bootstrap__WEBPACK_IMPORTED_MODULE_2__.Modal;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
       onClick: function onClick() {
         myModal.show();
       },
       children: openModal
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      className: "modal fade",
-      id: idModal,
-      "data-bs-backdrop": "static",
-      "data-bs-keyboard": "false",
-      "aria-labelledby": "".concat(idModal, "Label"),
-      "aria-hidden": "true",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "modal-dialog modal-dialog-centered",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "modal-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            className: "modal-header bg-danger text-white",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
-              className: "modal-title",
-              id: "".concat(idModal, "Label"),
-              children: "Eliminar comentario"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-              className: "btn btn-close text-white",
-              "data-bs-dismiss": "modal",
-              "aria-label": "Close",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_7__.FaTimes, {
-                size: 20
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            className: "modal-body",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-              className: "text-danger fs-5",
-              children: "\xBFQuiere eliminar el siguiente comentario?"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-              className: "lead fs-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("em", {
-                children: comment
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            className: "modal-footer",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ButtonLoad__WEBPACK_IMPORTED_MODULE_4__.default, {
-              type: "button",
-              className: "btn btn-outline-danger",
-              text: "Eliminar",
-              textLoader: "Eliminando",
-              onClick: deleteComment,
-              loader: loader
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-              type: "button",
-              className: "btn btn-outline-dark",
-              "data-bs-dismiss": "modal",
-              children: "Cancelar"
-            })]
-          })]
-        })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Modal__WEBPACK_IMPORTED_MODULE_5__.default, {
+      idModal: idModal,
+      title: "Eliminar comentario",
+      body: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          className: "text-danger fs-5",
+          children: "\xBFQuiere eliminar el siguiente comentario?"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          className: "lead fs-6",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("em", {
+            children: comment
+          })
+        })]
+      }),
+      footer: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ButtonLoad__WEBPACK_IMPORTED_MODULE_4__.default, {
+          type: "button",
+          className: "btn btn-outline-danger",
+          text: "Eliminar",
+          textLoader: "Eliminando",
+          onClick: deleteComment,
+          loader: loader
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          type: "button",
+          className: "btn btn-outline-dark",
+          "data-bs-dismiss": "modal",
+          children: "Cancelar"
+        })]
       })
     })]
   });
@@ -6337,6 +6313,169 @@ ModalDelete.propTypes = {
   comment: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string.isRequired)
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalDelete);
+
+/***/ }),
+
+/***/ "./resources/js/components/Comments/ViewAll/components/ChangeValues/components/ModalEdit.jsx":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/Comments/ViewAll/components/ChangeValues/components/ModalEdit.jsx ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var _Helpers_apiCall__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../Helpers/apiCall */ "./resources/js/Helpers/apiCall/index.js");
+/* harmony import */ var _ButtonLoad__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ButtonLoad */ "./resources/js/components/ButtonLoad/index.jsx");
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../Modal */ "./resources/js/components/Modal/index.jsx");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+var ModalEdit = function ModalEdit(_ref) {
+  var _errors$body, _errors$body2;
+
+  var id = _ref.id,
+      openModal = _ref.openModal,
+      comment = _ref.comment,
+      afterEditComment = _ref.afterEditComment;
+  var btnSubmit = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      loader = _useState2[0],
+      setLoader = _useState2[1];
+
+  var idModal = "editComment".concat(id);
+
+  var _useForm = (0,react_hook_form__WEBPACK_IMPORTED_MODULE_6__.useForm)({
+    defaultValues: {
+      body: comment
+    }
+  }),
+      register = _useForm.register,
+      handleSubmit = _useForm.handleSubmit,
+      errors = _useForm.formState.errors;
+
+  var myModal;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    myModal = new bootstrap__WEBPACK_IMPORTED_MODULE_2__.Modal(document.getElementById(idModal), {
+      keyboard: false
+    });
+  });
+
+  var onSubmit = function onSubmit(data) {
+    setLoader(true);
+    (0,_Helpers_apiCall__WEBPACK_IMPORTED_MODULE_3__.apiCall)({
+      url: "comments/" + id,
+      method: "put",
+      data: data
+    }).then(function () {
+      afterEditComment();
+      react_toastify__WEBPACK_IMPORTED_MODULE_8__.toast.success("Comentario Modificado.");
+    })["finally"](function () {
+      setLoader(false);
+    });
+  };
+
+  var sendForm = function sendForm() {
+    btnSubmit.current.click();
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+      onClick: function onClick() {
+        myModal.show();
+      },
+      children: openModal
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Modal__WEBPACK_IMPORTED_MODULE_5__.default, {
+      idModal: idModal,
+      title: "Modificar comentario",
+      body: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
+        onSubmit: handleSubmit(onSubmit),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+          className: "text-danger fs-5",
+          children: "Comentario"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("textarea", _objectSpread({
+            className: "comment-add-textarea form-control ".concat(errors !== null && errors !== void 0 && (_errors$body = errors.body) !== null && _errors$body !== void 0 && _errors$body.message ? "is-invalid" : ""),
+            placeholder: "Mi idea es...",
+            rows: "6"
+          }, register("body", {
+            required: {
+              value: true,
+              message: "Compártenos tu idea"
+            }
+          }))), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            className: "form-text text-danger text-end",
+            children: errors === null || errors === void 0 ? void 0 : (_errors$body2 = errors.body) === null || _errors$body2 === void 0 ? void 0 : _errors$body2.message
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+            className: "d-none",
+            type: "submit",
+            ref: btnSubmit
+          })]
+        })]
+      }),
+      footer: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ButtonLoad__WEBPACK_IMPORTED_MODULE_4__.default, {
+          type: "button",
+          className: "btn btn-outline-danger",
+          text: "Modificar",
+          textLoader: "Modificando",
+          onClick: sendForm,
+          loader: loader
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+          type: "button",
+          className: "btn btn-outline-dark",
+          "data-bs-dismiss": "modal",
+          children: "Cerrar"
+        })]
+      })
+    })]
+  });
+};
+
+ModalEdit.propTypes = {
+  id: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().number.isRequired),
+  openModal: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().node.isRequired),
+  comment: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string.isRequired)
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalEdit);
 
 /***/ }),
 
@@ -6355,9 +6494,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
 /* harmony import */ var _components_ModalDelete__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ModalDelete */ "./resources/js/components/Comments/ViewAll/components/ChangeValues/components/ModalDelete.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_ModalEdit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ModalEdit */ "./resources/js/components/Comments/ViewAll/components/ChangeValues/components/ModalEdit.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -6374,6 +6514,17 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
+/**
+ * componente que renderiza las opciones de eliminar y editar comentario
+ *
+ * @param {number} comment_id - id del comentario
+ * @param {string} comment - comentario
+ * @param {Function} afterChangeComments - callback se ejecuta después de editar o eliminar un comentario
+ * @param {object} rest - resto de propiedades, se agregan al contenedor
+ * @returns
+ */
+
+
 
 
 var ChangeValues = function ChangeValues(_ref) {
@@ -6388,35 +6539,44 @@ var ChangeValues = function ChangeValues(_ref) {
       return new bootstrap__WEBPACK_IMPORTED_MODULE_2__.Tooltip(tooltipTriggerEl);
     });
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", _objectSpread(_objectSpread({}, rest), {}, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_ModalDelete__WEBPACK_IMPORTED_MODULE_3__.default, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", _objectSpread(_objectSpread({}, rest), {}, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_ModalDelete__WEBPACK_IMPORTED_MODULE_3__.default, {
       id: comment_id,
       comment: comment,
       afterDeleteComment: afterChangeComments,
-      openModal: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+      openModal: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
         className: "btn text-danger p-1 no-outline",
         "data-bs-toggle": "tooltip",
         "data-bs-placement": "top",
         title: "Eliminar comentarios",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
           size: 25,
           className: ""
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-      className: "btn text-warning p-1 no-outline",
-      "data-bs-toggle": "tooltip",
-      "data-bs-placement": "top",
-      title: "Editar comentario",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEdit, {
-        size: 25,
-        className: ""
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_ModalEdit__WEBPACK_IMPORTED_MODULE_4__.default, {
+      id: comment_id,
+      comment: comment,
+      afterEditComment: afterChangeComments,
+      openModal: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+        className: "btn text-warning p-1 no-outline",
+        "data-bs-toggle": "tooltip",
+        "data-bs-placement": "top",
+        title: "Editar comentario",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaEdit, {
+          size: 25,
+          className: ""
+        })
       })
     })]
   }));
 };
 
-ChangeValues.propTypes = {};
+ChangeValues.propTypes = {
+  comment_id: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().number.isRequired),
+  comment: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string.isRequired),
+  afterChangeComments: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ChangeValues);
 
 /***/ }),
@@ -6717,7 +6877,7 @@ var CommentsViewAll = function CommentsViewAll(_ref) {
     return state.auth;
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-    children: (data === null || data === void 0 ? void 0 : data.length) > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("section", {
+    children: data.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("section", {
       className: "container bg-dark p-3 fs-6 fs-md-5 fs-lg-4",
       id: "comments",
       children: [data.map(function (comment, index) {
@@ -6754,7 +6914,8 @@ var CommentsViewAll = function CommentsViewAll(_ref) {
 };
 
 CommentsViewAll.defaultProps = {
-  links: undefined,
+  data: [],
+  links: null,
   optionsComment: false,
   afterChangeComments: function afterChangeComments() {}
 };
@@ -7098,6 +7259,80 @@ var Logo = function Logo(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Modal/index.jsx":
+/*!*************************************************!*\
+  !*** ./resources/js/components/Modal/index.jsx ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var Modal = function Modal(_ref) {
+  var idModal = _ref.idModal,
+      title = _ref.title,
+      body = _ref.body,
+      footer = _ref.footer;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "modal fade",
+    id: idModal,
+    "data-bs-backdrop": "static",
+    "data-bs-keyboard": "false",
+    "aria-labelledby": "".concat(idModal, "Label"),
+    "aria-hidden": "true",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "modal-dialog modal-dialog-centered",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "modal-content",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "modal-header bg-danger text-white",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
+            className: "modal-title",
+            id: "".concat(idModal, "Label"),
+            children: title
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            className: "btn btn-close text-white",
+            "data-bs-dismiss": "modal",
+            "aria-label": "Close",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaTimes, {
+              size: 20
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "modal-body",
+          children: body
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "modal-footer",
+          children: footer
+        })]
+      })
+    })
+  });
+};
+
+Modal.propTypes = {
+  idModal: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string.isRequired),
+  title: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string.isRequired),
+  body: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().node),
+  footer: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().node)
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Modal);
+
+/***/ }),
+
 /***/ "./resources/js/components/SpinLoader/index.jsx":
 /*!******************************************************!*\
   !*** ./resources/js/components/SpinLoader/index.jsx ***!
@@ -7190,9 +7425,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "setLogout": () => (/* binding */ setLogout),
 /* harmony export */   "setCleanSession": () => (/* binding */ setCleanSession)
 /* harmony export */ });
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
 /* harmony import */ var _Helpers_apiCall__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Helpers/apiCall */ "./resources/js/Helpers/apiCall/index.js");
-
+// import {toast} from "react-toastify"
 
 var AuthDataInit = {};
 var SET__LOGIN__SUCCESS = "SET__LOGIN__SUCCESS";
@@ -7248,9 +7482,10 @@ var setLogout = function setLogout() {
       url: "logout",
       method: "post",
       showErrors: false
-    }).then(function () {
-      react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.info("Hasta pronto...");
-    })["finally"](function () {
+    }) // .then(() => {
+    //   toast.info("Hasta pronto...")
+    // })
+    ["finally"](function () {
       dispatch({
         type: SET__CLEAN__AUTH,
         payload: AuthDataInit
@@ -7939,8 +8174,8 @@ var Home = function Home() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Comments_Add__WEBPACK_IMPORTED_MODULE_2__.default, {
       afterAddComment: loadComments
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Comments_ViewAll__WEBPACK_IMPORTED_MODULE_3__.default, {
-      data: comments.data,
-      links: comments.links,
+      data: comments === null || comments === void 0 ? void 0 : comments.data,
+      links: comments === null || comments === void 0 ? void 0 : comments.links,
       optionsComment: true,
       afterChangeComments: loadComments
     })]
@@ -8308,14 +8543,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Profile = function Profile() {
+  var _comments$data;
+
   var comments = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.comments;
-  }); //   const dispatch = useDispatch()
-  //   useEffect(() => {
-  //     dispatch(getUserComments())
-  //   }, [])
+  });
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
 
+  var loadComments = function loadComments() {
+    dispatch((0,_Redux_actions_Comments__WEBPACK_IMPORTED_MODULE_2__.getUserComments)());
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    dispatch((0,_Redux_actions_Comments__WEBPACK_IMPORTED_MODULE_2__.getUserComments)());
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Layouts_Light__WEBPACK_IMPORTED_MODULE_3__.default, {
     title: "Perfil",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
@@ -8326,7 +8569,22 @@ var Profile = function Profile() {
           className: "col",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UserInfo__WEBPACK_IMPORTED_MODULE_7__.default, {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Comments_Add__WEBPACK_IMPORTED_MODULE_6__.default, {
-          actionComment: _Redux_actions_Comments__WEBPACK_IMPORTED_MODULE_2__.getUserComments
+          afterAddComment: loadComments
+        }), (comments === null || comments === void 0 ? void 0 : (_comments$data = comments.data) === null || _comments$data === void 0 ? void 0 : _comments$data.length) > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            className: "col-9 col-md-7 col-lg-8",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Title__WEBPACK_IMPORTED_MODULE_5__.default, {
+              value: "TUS IDEAS COMPARTIDAS"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            className: "col-12 mt-2",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Comments_ViewAll__WEBPACK_IMPORTED_MODULE_4__.default, {
+              data: comments === null || comments === void 0 ? void 0 : comments.data,
+              links: comments === null || comments === void 0 ? void 0 : comments.links,
+              optionsComment: true,
+              afterChangeComments: loadComments
+            })
+          })]
         })]
       })
     })

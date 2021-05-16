@@ -1,4 +1,4 @@
-import {toast} from "react-toastify"
+// import {toast} from "react-toastify"
 import {apiCall} from "../../Helpers/apiCall"
 export const AuthDataInit = {}
 
@@ -53,9 +53,9 @@ export const setLogout = () => (dispatch) => {
     method: "post",
     showErrors: false,
   })
-    .then(() => {
-      toast.info("Hasta pronto...")
-    })
+    // .then(() => {
+    //   toast.info("Hasta pronto...")
+    // })
     .finally(() => {
       dispatch({
         type: SET__CLEAN__AUTH,
