@@ -38,3 +38,9 @@ Abra el archivo **.env** y busque la siguiente variable **MIX_APP_API** y le asi
 En una terminal ubicado en la carpeta raíz, ejecutar el comando, laravel creara un servidor en el cual se estará ejecutando el proyecto [http://localhost:8080/](http://localhost:8080/)
 
         php artisan serve --port=8080
+
+### Testing
+
+Ejecutando las pruebas unitarias de la aplicación se ejecuta en una terminal el siguiente comando
+
+        npm run test

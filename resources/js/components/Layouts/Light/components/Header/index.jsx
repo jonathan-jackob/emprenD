@@ -1,5 +1,4 @@
 import React from "react"
-import {FaCompass} from "react-icons/fa"
 import UserOptions from "./components/UserOptions"
 import {Link} from "react-router-dom"
 

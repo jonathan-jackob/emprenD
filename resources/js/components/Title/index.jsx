@@ -9,10 +9,18 @@ import PropTypes from "prop-types"
  */
 const Title = ({value}) => {
   return (
-    <h1 className="font-weight-bold border-bottom border-secondary border-2">
-      {value}
-    </h1>
+    <>
+      {value && (
+        <h1 className="font-weight-bold border-bottom border-secondary border-2">
+          {value}
+        </h1>
+      )}
+    </>
   )
+}
+
+Title.defaultProps = {
+  value: undefined,
 }
 
 Title.propTypes = {

@@ -48,38 +48,46 @@ const CommentForm = ({afterAddComment, ...rest}) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} {...rest}>
-      <div>
-        <textarea
-          className={`comment-add-textarea form-control ${
-            errors?.body?.message ? "is-invalid" : ""
-          }`}
-          placeholder="Mi idea es..."
-          rows="6"
-          {...register("body", {
-            required: {value: true, message: "Compártenos tu idea"},
-          })}
-        ></textarea>
+    <>
+      {afterAddComment !== undefined && (
+        <form onSubmit={handleSubmit(onSubmit)} {...rest}>
+          <div>
+            <textarea
+              className={`comment-add-textarea form-control ${
+                errors?.body?.message ? "is-invalid" : ""
+              }`}
+              placeholder="Mi idea es..."
+              rows="6"
+              {...register("body", {
+                required: {value: true, message: "Compártenos tu idea"},
+              })}
+            ></textarea>
 
-        <div className="form-text text-danger text-end">
-          {errors?.body?.message}
-        </div>
-      </div>
+            <div className="form-text text-danger text-end">
+              {errors?.body?.message}
+            </div>
+          </div>
 
-      <div className="text-end mt-3">
-        <ButtonLoad
-          className="btn btn-secondary text-white"
-          text={
-            <>
-              Compartir <FaArrowRight />
-            </>
-          }
-          loader={loader}
-          textLoader="compartiendo"
-        />
-      </div>
-    </form>
+          <div className="text-end mt-3">
+            <ButtonLoad
+              className="btn btn-secondary text-white"
+              text={
+                <>
+                  Compartir <FaArrowRight />
+                </>
+              }
+              loader={loader}
+              textLoader="compartiendo"
+            />
+          </div>
+        </form>
+      )}
+    </>
   )
+}
+
+CommentForm.defaultProps = {
+  afterAddComment: undefined,
 }
 
 CommentForm.propTypes = {

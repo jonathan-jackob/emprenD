@@ -17,14 +17,21 @@ const CommentAdd = ({afterAddComment}) => {
           <Title value="COMPARTE TU IDEA" />
         </div>
 
-        <CommentForm
-          className="mt-3 col-12"
-          afterAddComment={afterAddComment}
-        />
+        {afterAddComment != undefined && (
+          <CommentForm
+            className="comment__form mt-3 col-12"
+            afterAddComment={afterAddComment}
+          />
+        )}
       </div>
     </div>
   )
 }
+
+CommentAdd.defaultProps = {
+  afterAddComment: undefined,
+}
+
 CommentAdd.propTypes = {
   afterAddComment: PropTypes.func.isRequired,
 }

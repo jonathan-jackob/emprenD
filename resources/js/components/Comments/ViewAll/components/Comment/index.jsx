@@ -1,8 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import ChangeValues from "../ChangeValues"
-import {useSelector} from "react-redux"
-
 /**
  * renderiza el comentario en un recuadro
  *
@@ -11,8 +8,6 @@ import {useSelector} from "react-redux"
  * @returns
  */
 const Comment = ({body, ...rest}) => {
-  const auth = useSelector((state) => state.auth)
-
   return (
     <div {...rest}>
       <div className="comments--content--comment bg-gray-light mb-1 px-2 py-3 position-relative">
