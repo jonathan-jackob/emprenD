@@ -1,7 +1,6 @@
 import React from "react"
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types"
 import {FaCompass} from "react-icons/fa"
-
 
 /**
  * genera el logo de la aplicación
@@ -23,12 +22,12 @@ const Logo = ({size, ...rest}) => {
   )
 }
 
-Logo.defaultProps={
-    size: 0
+Logo.defaultProps = {
+  size: 0,
 }
 
-Logo.propTypes={
-    size: PropTypes.number.isRequired
+Logo.propTypes = {
+  size: PropTypes.number.isRequired,
 }
 
 export default Logo

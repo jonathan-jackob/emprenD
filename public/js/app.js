@@ -5226,7 +5226,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * muestra una barra superior de la aplicación con opciones
  * para usuarios con sesión activa
@@ -5368,8 +5367,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -5379,6 +5380,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 
 
 
@@ -5393,18 +5395,27 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
+
 var Logo = function Logo(_ref) {
   var size = _ref.size,
       rest = _objectWithoutProperties(_ref, ["size"]);
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", _objectSpread(_objectSpread({}, rest), {}, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaCompass, {
-      className: "text-secondary",
-      size: size
-    }), " emprenD"]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", _objectSpread(_objectSpread({}, rest), {}, {
+    children: size > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaCompass, {
+        className: "text-secondary",
+        size: size
+      }), " emprenD"]
+    })
   }));
 };
 
+Logo.defaultProps = {
+  size: 0
+};
+Logo.propTypes = {
+  size: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().number.isRequired)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Logo);
 
 /***/ }),
@@ -5494,7 +5505,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-var urlApi = "http://api.test/api/";
+var urlApi = "http://localhost:8000/api/";
 /**
  * maneja las peticiones a la API
  * retorna una Promise e intercepta los errores generados
@@ -5720,7 +5731,7 @@ var getCommentsPaginate = function getCommentsPaginate(_ref) {
       ended = _ref$ended === void 0 ? function () {} : _ref$ended;
   return function (dispatch) {
     // limpia la url - elimina url base de api
-    url = url.replace("http://api.test/api/", "");
+    url = url.replace("http://localhost:8000/api/", "");
     (0,_Helpers_apiCall__WEBPACK_IMPORTED_MODULE_1__.apiCall)({
       url: url,
       method: "get"
@@ -6096,37 +6107,42 @@ var CommentForm = function CommentForm(_ref) {
     });
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", _objectSpread(_objectSpread({
-    onSubmit: handleSubmit(onSubmit)
-  }, rest), {}, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", _objectSpread({
-        className: "comment-add-textarea form-control ".concat(errors !== null && errors !== void 0 && (_errors$body = errors.body) !== null && _errors$body !== void 0 && _errors$body.message ? "is-invalid" : ""),
-        placeholder: "Mi idea es...",
-        rows: "6"
-      }, register("body", {
-        required: {
-          value: true,
-          message: "Compártenos tu idea"
-        }
-      }))), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "form-text text-danger text-end",
-        children: errors === null || errors === void 0 ? void 0 : (_errors$body2 = errors.body) === null || _errors$body2 === void 0 ? void 0 : _errors$body2.message
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: afterAddComment !== undefined && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", _objectSpread(_objectSpread({
+      onSubmit: handleSubmit(onSubmit)
+    }, rest), {}, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", _objectSpread({
+          className: "comment-add-textarea form-control ".concat(errors !== null && errors !== void 0 && (_errors$body = errors.body) !== null && _errors$body !== void 0 && _errors$body.message ? "is-invalid" : ""),
+          placeholder: "Mi idea es...",
+          rows: "6"
+        }, register("body", {
+          required: {
+            value: true,
+            message: "Compártenos tu idea"
+          }
+        }))), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "form-text text-danger text-end",
+          children: errors === null || errors === void 0 ? void 0 : (_errors$body2 = errors.body) === null || _errors$body2 === void 0 ? void 0 : _errors$body2.message
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "text-end mt-3",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ButtonLoad__WEBPACK_IMPORTED_MODULE_4__.default, {
+          className: "btn btn-secondary text-white",
+          text: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+            children: ["Compartir ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_7__.FaArrowRight, {})]
+          }),
+          loader: loader,
+          textLoader: "compartiendo"
+        })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      className: "text-end mt-3",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ButtonLoad__WEBPACK_IMPORTED_MODULE_4__.default, {
-        className: "btn btn-secondary text-white",
-        text: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-          children: ["Compartir ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_7__.FaArrowRight, {})]
-        }),
-        loader: loader,
-        textLoader: "compartiendo"
-      })
-    })]
-  }));
+    }))
+  });
 };
 
+CommentForm.defaultProps = {
+  afterAddComment: undefined
+};
 CommentForm.propTypes = {
   afterAddComment: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func.isRequired)
 };
@@ -6176,14 +6192,17 @@ var CommentAdd = function CommentAdd(_ref) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Title__WEBPACK_IMPORTED_MODULE_2__.default, {
           value: "COMPARTE TU IDEA"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_CommentForm__WEBPACK_IMPORTED_MODULE_3__.default, {
-        className: "mt-3 col-12",
+      }), afterAddComment != undefined && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_CommentForm__WEBPACK_IMPORTED_MODULE_3__.default, {
+        className: "comment__form mt-3 col-12",
         afterAddComment: afterAddComment
       })]
     })
   });
 };
 
+CommentAdd.defaultProps = {
+  afterAddComment: undefined
+};
 CommentAdd.propTypes = {
   afterAddComment: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func.isRequired)
 };
@@ -6595,9 +6614,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ChangeValues__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ChangeValues */ "./resources/js/components/Comments/ViewAll/components/ChangeValues/index.jsx");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -6607,8 +6624,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-
 
 
 
@@ -6626,12 +6641,9 @@ var Comment = function Comment(_ref) {
   var body = _ref.body,
       rest = _objectWithoutProperties(_ref, ["body"]);
 
-  var auth = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useSelector)(function (state) {
-    return state.auth;
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", _objectSpread(_objectSpread({}, rest), {}, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "comments--content--comment bg-gray-light mb-1 px-2 py-3 position-relative",
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", _objectSpread(_objectSpread({}, rest), {}, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("pre", {
+      className: "comments--content--comment bg-gray-light mb-1 px-2 py-3 position-relative font-italic",
       children: body
     })
   }));
@@ -6773,8 +6785,8 @@ var Pagination = function Pagination(_ref) {
   var paginate = function paginate(link) {
     dispatch((0,_Redux_actions_Comments__WEBPACK_IMPORTED_MODULE_3__.getCommentsPaginate)({
       url: link,
-      success: function success() {
-        var coment = document.querySelector("section#comments").offsetTop; //   window.scroll({
+      success: function success() {//   const coment = document.querySelector("section#comments").offsetTop
+        //   window.scroll({
         //     top: coment - 70,
         //     behavior: "smooth",
         //   })
@@ -6787,7 +6799,7 @@ var Pagination = function Pagination(_ref) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: links && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    children: (links.prev || links.next) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "container pt-2",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "row justify-content-between",
@@ -7076,7 +7088,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * muestra una barra superior de la aplicación con opciones
  * para usuarios con sesión activa
@@ -7218,8 +7229,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -7229,6 +7242,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 
 
 
@@ -7243,18 +7257,27 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
+
 var Logo = function Logo(_ref) {
   var size = _ref.size,
       rest = _objectWithoutProperties(_ref, ["size"]);
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", _objectSpread(_objectSpread({}, rest), {}, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaCompass, {
-      className: "text-secondary",
-      size: size
-    }), " emprenD"]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", _objectSpread(_objectSpread({}, rest), {}, {
+    children: size > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaCompass, {
+        className: "text-secondary",
+        size: size
+      }), " emprenD"]
+    })
   }));
 };
 
+Logo.defaultProps = {
+  size: 0
+};
+Logo.propTypes = {
+  size: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().number.isRequired)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Logo);
 
 /***/ }),
@@ -7394,14 +7417,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Title = function Title(_ref) {
   var value = _ref.value;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-    className: "font-weight-bold border-bottom border-secondary border-2",
-    children: value
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: value && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+      className: "font-weight-bold border-bottom border-secondary border-2",
+      children: value
+    })
   });
 };
 
+Title.defaultProps = {
+  value: undefined
+};
 Title.propTypes = {
   value: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string.isRequired)
 };
@@ -7578,7 +7607,7 @@ var getCommentsPaginate = function getCommentsPaginate(_ref) {
       ended = _ref$ended === void 0 ? function () {} : _ref$ended;
   return function (dispatch) {
     // limpia la url - elimina url base de api
-    url = url.replace("http://api.test/api/", "");
+    url = url.replace("http://localhost:8000/api/", "");
     (0,_Helpers_apiCall__WEBPACK_IMPORTED_MODULE_1__.apiCall)({
       url: url,
       method: "get"
@@ -8170,6 +8199,7 @@ var Home = function Home() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     loadComments();
   }, []);
+  console.log(comments);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_Components_Layouts_Light__WEBPACK_IMPORTED_MODULE_4__.default, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Comments_Add__WEBPACK_IMPORTED_MODULE_2__.default, {
       afterAddComment: loadComments
@@ -8319,7 +8349,7 @@ var Login = function Login() {
             to: "/register",
             className: "text-white",
             replace: true,
-            children: "registrarme"
+            children: "Registrarme"
           })
         })]
       })

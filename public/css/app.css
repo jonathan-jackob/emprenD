@@ -12949,6 +12949,7 @@ textarea.form-control-lg {
 
 .comments--content--comment {
   min-height: 5rem;
+  font-family: Poppins;
 }
 
 #app {

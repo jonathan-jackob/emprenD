@@ -7,4 +7,4 @@ mix
   .react()
   .sass("resources/sass/app.scss", "public/css")
   .disableSuccessNotifications()
-  .browserSync("http://127.0.0.1:8000/")
+//   .browserSync("http://127.0.0.1:8000/")

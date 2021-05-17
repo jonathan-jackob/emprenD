@@ -4,7 +4,7 @@ import {expect} from "chai"
 import {shallow} from "enzyme"
 import Comment from "."
 
-describe("resources/js/components/Comments/ViewAll/components/Comment", () => {
+describe("resources/js/components/Comments/ViewAll/components/Comment/", () => {
   it("Renderiza div con el contenido enviado en el prop body", () => {
     const body = "soy el body"
     const wrapper = shallow(<Comment body={body} />)

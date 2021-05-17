@@ -19,8 +19,7 @@ const Pagination = ({links}) => {
       getCommentsPaginate({
         url: link,
         success: () => {
-          const coment = document.querySelector("section#comments").offsetTop
-
+          //   const coment = document.querySelector("section#comments").offsetTop
           //   window.scroll({
           //     top: coment - 70,
           //     behavior: "smooth",
@@ -36,10 +35,10 @@ const Pagination = ({links}) => {
 
   return (
     <>
-      (
-      <div className="container pt-2">
-        <div className="row justify-content-between">
-          {/* <div className="col-6 col-sm-3 text-center mb-2 mb-sm-0">
+      {(links.prev || links.next) && (
+        <div className="container pt-2">
+          <div className="row justify-content-between">
+            {/* <div className="col-6 col-sm-3 text-center mb-2 mb-sm-0">
           <button
             className="btn btn-secondary text-white w-100"
             onClick={() => {
@@ -50,7 +49,6 @@ const Pagination = ({links}) => {
           </button>
         </div> */}
 
-          {links.next && (
             <div className="col-6 col-sm-3 text-center mb-2 mb-sm-0">
               <button
                 className="btn btn-secondary text-white w-100"
@@ -64,9 +62,7 @@ const Pagination = ({links}) => {
                 {loaderNext && <SpinLoader />}
               </button>
             </div>
-          )}
 
-          {links.prev && (
             <div className="col-6 col-sm-3 text-center mb-2 mb-sm-0">
               <button
                 className="btn btn-secondary text-white w-100"
@@ -80,9 +76,8 @@ const Pagination = ({links}) => {
                 {loaderPrev && <SpinLoader />}
               </button>
             </div>
-          )}
 
-          {/* <div className="col-6 col-sm-3 text-center mb-2 mb-sm-0">
+            {/* <div className="col-6 col-sm-3 text-center mb-2 mb-sm-0">
           <button
             className="btn btn-secondary text-white w-100"
             onClick={() => {
@@ -92,8 +87,9 @@ const Pagination = ({links}) => {
             Mas recientes
           </button>
         </div> */}
+          </div>
         </div>
-      </div>
+      )}
     </>
   )
 }

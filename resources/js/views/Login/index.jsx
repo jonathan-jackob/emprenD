@@ -93,7 +93,7 @@ const Login = () => {
 
           <div>
             <Link to="/register" className="text-white" replace>
-              registrarme
+              Registrarme
             </Link>
           </div>
         </div>

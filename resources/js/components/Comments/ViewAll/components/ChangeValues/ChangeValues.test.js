@@ -4,7 +4,7 @@ import {expect} from "chai"
 import {shallow} from "enzyme"
 import ChangeValues from "."
 
-describe("resources/js/components/Comments/ViewAll/components/ChangeValues", () => {
+describe("resources/js/components/Comments/ViewAll/components/ChangeValues/", () => {
   it("Genera un modal Edit y un modal Delete", () => {
     const wrapper = shallow(
       <ChangeValues
