@@ -48,7 +48,7 @@ const Register = () => {
     <LayoutDark title="Registrate">
       <form className="row w-100  fs-5" onSubmit={handleSubmit(onSubmit)}>
         <div className="col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 mx-auto">
-          <Logo />
+          <Logo size={40} className="fs-1 text-center font-bold mb-3" />
 
           <div className="mb-3 text-end">
             <label className="form-label mb-0">Nombre</label>

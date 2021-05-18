@@ -16,11 +16,11 @@ Proyecto backend [emprend-api](https://github.com/fakereto/emprend-api) en el cu
 
 Descargar el **Proyecto** lo puede hacer de las siguientes formas
 
-1.  Clonando el repositorio con git
+1.  Clonando el repositorio con git.
 
         git clone https://github.com/jonathan-jackob/emprenD.git
 
-2.  Descargar el proyecto en ZIP
+2.  Descargar el proyecto en ZIP.
     ![download zip repository github](https://i.postimg.cc/g27qkMgC/imageedit-9-4620369683.jpg)
 
 ### Preparando el proyecto
@@ -35,9 +35,9 @@ Abra el archivo **.env** y busque la siguiente variable **MIX_APP_API** y le asi
 
     MIX_APP_API=http://localhost:8000/api/
 
-si modificó la url de la api, tiene que ejecutar el siguiente comando, el cual compilara los archivos js (con la url de api actualizada) y css necesarios para la aplicación
+si modificó la url de la api, tiene que ejecutar el siguiente comando, el cual compilara los archivos js (con la url de api actualizada) y css necesarios para la aplicación.
 
-    npm run prod
+    npm run dev
 
 ### Ejecutando el proyecto
 
@@ -45,8 +45,12 @@ En una terminal ubicado en la carpeta raíz, ejecutar el comando siguiente coman
 
     php artisan serve --port=8001
 
+### Proyecto a producción
+
+Para desplegar la aplicación, puede revisar la siguiente página de [laravel deployment](https://laravel.com/docs/8.x/deployment) en la cual detalla el proceso para pasar a producción en diferentes entornos.
+
 ### Testing
 
-Para ejecutar las pruebas al proyecto en una terminal se ejecuta el siguiente comando
+Para ejecutar las pruebas al proyecto en una terminal se ejecuta el siguiente comando.
 
     npm run test

@@ -25,8 +25,6 @@ const Home = () => {
     loadComments()
   }, [])
 
-  console.log(comments)
-
   return (
     <LayoutLight>
       <CommentAdd afterAddComment={loadComments} />
