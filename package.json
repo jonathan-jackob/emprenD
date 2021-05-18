@@ -21,6 +21,7 @@
         "bootstrap": "^5.0.0",
         "browser-sync": "^2.26.14",
         "browser-sync-webpack-plugin": "^2.3.0",
+        "chai-arrays": "^2.2.0",
         "enzyme": "^3.11.0",
         "gulp": "^4.0.2",
         "gulp-sass": "^4.1.0",
@@ -33,6 +34,7 @@
         "postcss": "^8.1.14",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "redux-mock-store": "^1.5.4",
         "resolve-url-loader": "^3.1.2",
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1"

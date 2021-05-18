@@ -47,8 +47,8 @@ export const setLogin =
  * se puede cerrar la sesión localmente
  * para brindar una mejor experiencia al usuario
  */
-export const setLogout = () => (dispatch) => {
-  apiCall({
+export const setLogout = () => async (dispatch) => {
+  await apiCall({
     url: "logout",
     method: "post",
     showErrors: false,
