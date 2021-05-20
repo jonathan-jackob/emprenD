@@ -1,0 +1,49 @@
+.about {
+  background-color: $gris-light;
+  position: relative;
+
+  &__content {
+    @extend %flex-center;
+    min-height: 350px;
+    flex-direction: column;
+
+    p {
+      line-height: 1.2;
+    }
+  }
+
+  &__image {
+    @extend %full-size;
+    object-fit: cover;
+    max-height: 250px;
+  }
+}
+@media (min-width: 768px) {
+  .about {
+    &__content {
+      min-height: 500px;
+    }
+
+    &__image {
+      max-height: 100%;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .about {
+    &__content {
+      min-height: 550px;
+      padding-left: 3.5rem;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .about {
+    &__content {
+      min-height: 600px;
+      padding-left: 5rem;
+    }
+  }
+}

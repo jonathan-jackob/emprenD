@@ -27,3 +27,8 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.title {
+  border-bottom: 2px solid $secondary;
+  font-weight: bold;
+}

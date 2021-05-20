@@ -13786,6 +13786,25 @@ textarea.form-control-lg {
   content: "— ";
 }
 
+.banner__content, .banner__background, .about__image {
+  width: 100%;
+  height: 100%;
+}
+
+.banner__content, .banner__background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.banner__content, .about__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .comment-add-title {
   font-weight: bold;
 }
@@ -13801,21 +13820,49 @@ textarea.form-control-lg {
 header a.nav-link {
   color: #fe6261 !important;
   text-decoration: none;
+  font-size: 1.2rem;
 }
 header a.nav-link.active, header a.nav-link:hover {
   font-weight: bold;
 }
 
-.banner__content, .banner__background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.about {
+  background-color: #efefef;
+  position: relative;
+}
+.about__content {
+  min-height: 350px;
+  flex-direction: column;
+}
+.about__content p {
+  line-height: 1.2;
+}
+.about__image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 250px;
 }
 
+@media (min-width: 768px) {
+  .about__content {
+    min-height: 500px;
+  }
+  .about__image {
+    max-height: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .about__content {
+    min-height: 550px;
+    padding-left: 3.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .about__content {
+    min-height: 600px;
+    padding-left: 5rem;
+  }
+}
 .banner {
   position: relative;
   min-height: 450px;
@@ -13826,18 +13873,11 @@ header a.nav-link.active, header a.nav-link:hover {
   z-index: 0;
 }
 .banner__content {
+  flex-direction: column;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.65);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   color: white;
   text-align: center;
-}
-.banner__content .title {
-  border-bottom: 2px solid #fe6261;
-  font-weight: bold;
 }
 
 @media (min-width: 768px) {
@@ -13883,4 +13923,9 @@ header a.nav-link.active, header a.nav-link:hover {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.title {
+  border-bottom: 2px solid #fe6261;
+  font-weight: bold;
 }

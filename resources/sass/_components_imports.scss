@@ -1,5 +1,10 @@
+@import "./helpers";
+
 @import "./components/comments/Add";
 @import "./components/comments/ViewAll";
 
 @import "./components/navbar/nabvar";
+
+// sections styles
+@import "./sections/about.scss";
 @import "./sections/banner.scss";
