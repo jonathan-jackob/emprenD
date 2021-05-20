@@ -9,6 +9,8 @@ describe("resources/js/components/Comments/ViewAll/components/ContentDate/", () 
     const wrapper = shallow(
       <ContentDate user_id={1} created_at="2021-05-12T17:07:24.000000Z" />
     )
-    expect(wrapper.find("div").text()).to.equal("21-05-12 12:07:24 - usuario 1")
+    expect(wrapper.find("div").text()).to.equal(
+      "21-05-12 12:07:24 - <GetUser />"
+    )
   })
 })

@@ -10,9 +10,9 @@ import PropTypes from "prop-types"
 const Comment = ({body, ...rest}) => {
   return (
     <div {...rest}>
-      <pre className="comments--content--comment bg-gray-light mb-1 px-2 py-3 position-relative font-italic">
+      <p className="comments--content--comment bg-gray-light mb-1 px-2 py-3 position-relative font-italic">
         {body}
-      </pre>
+      </p>
     </div>
   )
 }

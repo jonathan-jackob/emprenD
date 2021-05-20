@@ -14,6 +14,7 @@ import Home from "../views/Home"
 
 function Router() {
   const auth = useSelector((state) => state.auth)
+
   return (
     <>
       <SessionState />

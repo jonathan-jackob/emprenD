@@ -1,9 +1,34 @@
 import {apiCall} from "../../Helpers/apiCall"
 import {SET__ERRORS} from "../errors"
 
-export const CommentsDataInit = {}
+export const CommentsDataInit = {
+  data: [],
+  links: {},
+  meta: {},
+  users: [],
+}
 export const GET__COMMENTS__SUCCESS = "GET__COMMENTS__SUCCESS"
 export const SET__RESET__COMMENTS = "SET__RESET__COMMENTS"
+export const SET__USER__COMMENT = "SET__USER__COMMENT"
+
+const getUses = async (responseComments, dispatch) => {
+  let comments = [...responseComments.data] //obtenemos los comentarios
+
+  //   extraemos los ids de usuarios de los comentarios, sin repetir usuario
+  const ids = await [...new Set(comments.map((comment) => comment.user_id))]
+
+  ids.forEach(async (id) => {
+    await apiCall({
+      url: "user/" + id,
+      method: "get",
+    }).then((response) => {
+      dispatch({
+        type: SET__USER__COMMENT,
+        payload: {name: response.data.name, id: response.data.id},
+      })
+    })
+  })
+}
 
 /**
  * petición GET a la API
@@ -15,6 +40,8 @@ export const getComments = () => (dispatch) => {
     method: "get",
   })
     .then((response) => {
+      getUses(response, dispatch)
+
       dispatch({
         type: GET__COMMENTS__SUCCESS,
         payload: response,
@@ -52,6 +79,8 @@ export const getCommentsPaginate =
       method: "get",
     })
       .then((response) => {
+        getUses(response, dispatch)
+
         dispatch({
           type: GET__COMMENTS__SUCCESS,
           payload: response,
@@ -88,6 +117,8 @@ export const getUserComments = () => async (dispatch) => {
     method: "get",
   })
     .then((response) => {
+      getUses(response, dispatch)
+
       dispatch({
         type: GET__COMMENTS__SUCCESS,
         payload: {data: response},
