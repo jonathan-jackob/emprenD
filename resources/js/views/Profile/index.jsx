@@ -13,15 +13,15 @@ import UserInfo from "./components/UserInfo"
  * con la posibilidad de modificar, agregar o eliminar comentarios
  */
 const Profile = () => {
-  const comments = useSelector((state) => state.comments)
+  const {comments, auth} = useSelector((state) => state)
   const dispatch = useDispatch()
 
-  const loadComments = () => {
-    dispatch(getUserComments())
+  const loadComments = (reset = false) => {
+    dispatch(getUserComments({id: auth?.id, reset}))
   }
 
   useEffect(() => {
-    dispatch(getUserComments())
+    loadComments(true)
   }, [])
 
   return (
@@ -36,8 +36,8 @@ const Profile = () => {
 
           {comments?.data?.length > 0 && (
             <>
-              <div className="col-9 col-md-7 col-lg-8">
-                <Title value="TUS IDEAS COMPARTIDAS" />
+              <div className="col-9 col-md-7 col-lg-8 mb-2">
+                <Title value="MIS IDEAS COMPARTIDAS" />
               </div>
 
               <div className="col-12 mt-2">

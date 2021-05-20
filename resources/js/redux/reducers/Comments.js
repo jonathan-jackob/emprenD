@@ -8,11 +8,11 @@ import {
 const CommentsReducer = (state = CommentsDataInit, action) => {
   switch (action.type) {
     case GET__COMMENTS__SUCCESS: {
-      return {...action.payload}
+      return {...state, ...action.payload}
     }
 
     case SET__USER__COMMENT: {
-      let users = state?.user != undefined ? state.users : []
+      let users = state?.users || []
       users.push(action.payload)
 
       return {...state, users}

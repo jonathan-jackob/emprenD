@@ -104,34 +104,42 @@ export const getCommentsPaginate =
 
 /***
  * petición GET a la API
- * para obtener los comentarios del usuario con la sesión activa
+ * para obtener los comentarios del usuario del id recibido
+ * @param {number} id id del usuario
+ * @param {boolean} reset borrado de comentarios en memoria
  */
-export const getUserComments = () => async (dispatch) => {
-  // reinicia los mensajes
-  await dispatch({
-    type: SET__RESET__COMMENTS,
-  })
-
-  await apiCall({
-    url: "user/comments",
-    method: "get",
-  })
-    .then((response) => {
-      getUses(response, dispatch)
-
-      dispatch({
-        type: GET__COMMENTS__SUCCESS,
-        payload: {data: response},
-      })
-    })
-    .catch((errors) => {
-      dispatch({
-        type: SET__ERRORS,
-        payload: errors,
-      })
-
-      dispatch({
+export const getUserComments =
+  ({id, reset = false}) =>
+  async (dispatch) => {
+    // reinicia los mensajes
+    reset &&
+      (await dispatch({
         type: SET__RESET__COMMENTS,
-      })
+      }))
+
+    await apiCall({
+      url: "user/" + id,
+      method: "get",
     })
-}
+      .then(({data}) => {
+        dispatch({
+          type: SET__USER__COMMENT,
+          payload: {name: data.name, id: data.id},
+        })
+
+        dispatch({
+          type: GET__COMMENTS__SUCCESS,
+          payload: {data: data.comments},
+        })
+      })
+      .catch((errors) => {
+        dispatch({
+          type: SET__ERRORS,
+          payload: errors,
+        })
+
+        dispatch({
+          type: SET__RESET__COMMENTS,
+        })
+      })
+  }
