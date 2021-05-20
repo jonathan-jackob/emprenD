@@ -1,5 +1,5 @@
 .about {
-  background-color: $gris-light;
+  background-color: $gray-light;
   position: relative;
 
   &__content {
@@ -34,7 +34,6 @@
   .about {
     &__content {
       min-height: 550px;
-      padding-left: 3.5rem;
     }
   }
 }
@@ -43,7 +42,6 @@
   .about {
     &__content {
       min-height: 600px;
-      padding-left: 5rem;
     }
   }
 }

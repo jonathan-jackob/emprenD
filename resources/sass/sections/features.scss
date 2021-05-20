@@ -1,0 +1,8 @@
+.features {
+  &__image {
+    background-color: $dark;
+    text-align: center;
+    color: $gray-light;
+    @extend %flex-center;
+  }
+}

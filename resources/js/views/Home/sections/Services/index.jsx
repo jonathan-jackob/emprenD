@@ -38,7 +38,7 @@ const Services = () => {
     <section id="services" className="container py-5">
       <div className="row py-md-5">
         <div className="col-6">
-          <h2 className="title font-bold">Servicios</h2>
+          <h2 className="title font-bold pb-4">Servicios</h2>
         </div>
       </div>
       <div className="row py-5">

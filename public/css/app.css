@@ -13799,7 +13799,7 @@ textarea.form-control-lg {
   left: 0;
 }
 
-.banner__content, .about__content {
+.features__image, .banner__content, .about__content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13854,13 +13854,11 @@ header a.nav-link.active, header a.nav-link:hover {
 @media (min-width: 992px) {
   .about__content {
     min-height: 550px;
-    padding-left: 3.5rem;
   }
 }
 @media (min-width: 1200px) {
   .about__content {
     min-height: 600px;
-    padding-left: 5rem;
   }
 }
 .banner {
@@ -13895,6 +13893,12 @@ header a.nav-link.active, header a.nav-link:hover {
     min-height: 600px;
   }
 }
+.features__image {
+  background-color: #333333;
+  text-align: center;
+  color: #efefef;
+}
+
 #app {
   min-height: 100vh;
 }
