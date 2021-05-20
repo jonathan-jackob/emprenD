@@ -7,8 +7,24 @@ const Team = () => {
   return (
     <section id="team" className="container team my-5">
       <div className="row">
+        <div className="col-10 col-sm-9 col-md-7 col-lg-6 mb-5">
+          <h2 className="title fs-2 lh-md pb-4 font-bold">
+            Nuestro equipo de trabajo
+          </h2>
+        </div>
+        <p className="col-12 lh-1 mb-5">
+          Nuestro equipo está compuesto por individuos guapos, ingeniosos, y
+          superpoderosos que están comprometidos con la madre naturaleza y
+          utilizar sus pode- res sobrenaturales para el bien y no para el mal.
+          Compartimos la pasión por innovar y mantenernos al día sobre los
+          últimos acontecimientos del universo.
+        </p>
+
         {teamData.map((item, i) => (
-          <div className="col-lg-4 px-3 px-lg-4 px-xxl-5 mb-5 mb-lg-0" key={i}>
+          <div
+            className="col-lg-4 px-3 px-lg-4 px-xxl-5 mb-5 mb-lg-0 mt-4"
+            key={i}
+          >
             <div className="team__card shadow-lg p-4 mx-auto">
               <div className="row">
                 <div className="col-sm-4 col-lg-12">

@@ -1,0 +1,13 @@
+.contact {
+  &__max__container {
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 576px) {
+  .contact {
+    &__max__container {
+      max-width: 100%;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+.contact {
+  &__location {
+    iframe {
+      @extend %full-size;
+      border: none;
+      background-color: $gray-light;
+      min-height: 200px;
+    }
+
+    i {
+      color: $secondary;
+    }
+
+    a,
+    p {
+      color: white;
+      text-decoration: none;
+
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .contact {
+    &__location {
+      iframe {
+        min-height: 270px;
+      }
+    }
+  }
+}
