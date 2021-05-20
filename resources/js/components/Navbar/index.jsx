@@ -7,7 +7,7 @@ const Navbar = ({children, linkLogo}) => {
   return (
     <>
       <div className="header-container">
-        <nav className="navbar navbar-light bg-white fixed-top position-fixed navbar-expand-md">
+        <nav className="navbar navbar-light bg-white fixed-top position-fixed navbar-expand-lg">
           <div className="container">
             <Link className="navbar-brand" to={linkLogo} replace>
               <Logo size={25} className="font-bold fs-4" />

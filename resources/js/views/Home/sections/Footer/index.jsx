@@ -1,9 +1,10 @@
 import React from "react"
-import {FaPhoneAlt} from "react-icons/fa"
-import {FiMail} from "react-icons/fi"
 
 import Logo from "../../../../Components/Logo"
-import {social_network_icons, pay_icons} from "./Icons"
+import BarFooter from "./components/BarFooter"
+import Cards from "./components/Cards"
+import Contacto from "./components/Contacto"
+import Phone from "./components/Phone"
 
 const Footer = () => {
   return (
@@ -18,43 +19,15 @@ const Footer = () => {
 
               {/* telefono */}
               <div className="col-sm-4 mb-2 mb-sm-0 d-flex justify-content-center">
-                <FaPhoneAlt size={30} className="mt-auto" />
-
-                <div>
-                  <span className="d-block fs-5">Teléfono:</span>
-                  <a
-                    href="tel:+523312345678"
-                    className="d-block text-white text-decoration-none"
-                  >
-                    (33) 1234 5678
-                  </a>
-                </div>
+                <Phone />
               </div>
               {/* pay cards */}
               <div className="col-sm-4 mb-2 mb-sm-0 text-center">
-                <div className="fs-5">Aceptamos</div>
-
-                <div>
-                  {pay_icons.map((card, index) => (
-                    <i key={index} className="ms-1">
-                      {card}
-                    </i>
-                  ))}
-                </div>
+                <Cards />
               </div>
               {/* email */}
               <div className="col-sm-4  d-flex justify-content-center">
-                <FiMail size={30} className="mt-auto" />
-                <div>
-                  <span className="d-block fs-5">Contacto:</span>
-
-                  <a
-                    href="mailto:info@emprend.com"
-                    className="d-block text-white text-decoration-none"
-                  >
-                    info@emprend.com
-                  </a>
-                </div>
+                <Contacto />
               </div>
             </div>
           </div>
@@ -65,20 +38,7 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-8 col-sm-12 col-md-10 col-lg-8 mx-auto">
-              <div className="row">
-                <div className="col-12 col-md-6 d-flex">
-                  <span className="m-auto">
-                    NEUBOX 2021 ® - Derechos reservados
-                  </span>
-                </div>
-                <div className="col-12 col-md-6">
-                  {social_network_icons.map((social, index) => (
-                    <a key={index} className="text-white cursor-pointer">
-                      {social}
-                    </a>
-                  ))}
-                </div>
-              </div>
+              <BarFooter />
             </div>
           </div>
         </div>

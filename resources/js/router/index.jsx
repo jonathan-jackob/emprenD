@@ -1,4 +1,5 @@
 import React from "react"
+import {useSelector} from "react-redux"
 import {Switch, BrowserRouter} from "react-router-dom"
 import ScrollToTop from "./ScrollToTop"
 import Route from "./Route"
@@ -12,6 +13,7 @@ import SessionState from "./SessionState"
 import Home from "../views/Home"
 
 function Router() {
+  const auth = useSelector((state) => state.auth)
   return (
     <>
       <SessionState />
@@ -20,7 +22,7 @@ function Router() {
 
         <Switch>
           <Route path="/" exact>
-            <Home />
+            {auth?.id ? <App /> : <Home />}
           </Route>
 
           <Route path="/login" redirectWithSession="/" exact>
@@ -31,9 +33,9 @@ function Router() {
             <Register />
           </Route>
 
-          <Route path="/App" redirectWithoutSession="login" exact>
+          {/* <Route path="/App" redirectWithoutSession="login" exact>
             <App />
-          </Route>
+          </Route> */}
 
           <Route path="/profile" redirectWithoutSession="/login" exact>
             <Profile />

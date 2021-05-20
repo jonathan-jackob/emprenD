@@ -1,29 +1,9 @@
 import React from "react"
-import {ImFilePicture, ImMusic} from "react-icons/im"
-import {FaMoneyBillAlt, FaTimes} from "react-icons/fa"
-import {AiOutlineFolderOpen} from "react-icons/ai"
+import {ImFilePicture} from "react-icons/im"
+
+import {featuresData} from "./data/featuresData"
 
 const Features = () => {
-  const sizeIcon = 40
-  const data = [
-    {
-      icon: <ImMusic size={sizeIcon} />,
-      title: "Lorem, ipsum.",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ex distinctio vero nemo impedit vitae molestias fuga error! Quo impedit iusto aliquam a alias voluptates tempore porro sapiente vel fugit.",
-    },
-
-    {
-      icon: <FaMoneyBillAlt size={sizeIcon} />,
-      title: "Lorem, ipsum.",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ex distinctio vero nemo impedit vitae molestias fuga error! Quo impedit iusto aliquam a alias voluptates tempore porro sapiente vel fugit.",
-    },
-
-    {
-      icon: <AiOutlineFolderOpen size={sizeIcon} />,
-      title: "Lorem, ipsum.",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ex distinctio vero nemo impedit vitae molestias fuga error! Quo impedit iusto aliquam a alias voluptates tempore porro sapiente vel fugit.",
-    },
-  ]
   return (
     <section id="features" className="features bg-gray-light py-5">
       <div className="container">
@@ -34,7 +14,7 @@ const Features = () => {
         </div>
         <div className="row py-5">
           <div className="col-md-7 col-lg-8">
-            {data.map((item, index) => (
+            {featuresData.map((item, index) => (
               <div className="row" key={index}>
                 <div className="col-2 text-secondary text-end">{item.icon}</div>
                 <div className="col-10">

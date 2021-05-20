@@ -1,15 +1,9 @@
 import React from "react"
 import Navbar from "../../../../components/Navbar"
+import {sectionsLinks} from "./data/sectionsLinks"
+import {Link} from "react-router-dom"
 
 const Header = () => {
-  const sections = [
-    {title: "Inicio", id: "#"},
-    {title: "Nosotros", id: "#about"},
-    {title: "Servicios", id: "#services"},
-    {title: "Características", id: "#features"},
-    {title: "Equipo", id: "#team"},
-    {title: "Contacto", id: "#contact"},
-  ]
   return (
     <header>
       <Navbar>
@@ -27,13 +21,19 @@ const Header = () => {
 
         <div className="collapse navbar-collapse ml-auto" id="navbarNav">
           <ul className="navbar-nav flex justify-content-around w-100">
-            {sections.map((section, index) => (
+            {sectionsLinks.map((section, index) => (
               <li key={index} className="nav-item text-center md-text-start">
                 <a className="nav-link" aria-current="page" href={section.id}>
                   {section.title}
                 </a>
               </li>
             ))}
+
+            <li className="nav-item text-center md-text-start">
+              <Link className="nav-link" to="/login">
+                Iniciar sesión
+              </Link>
+            </li>
           </ul>
         </div>
       </Navbar>

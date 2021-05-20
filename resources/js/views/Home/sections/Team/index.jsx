@@ -1,57 +1,13 @@
 import React from "react"
-import {
-  FaFacebookSquare,
-  FaGooglePlusSquare,
-  FaPinterestSquare,
-  FaTumblrSquare,
-  FaTwitterSquare,
-  FaYoutubeSquare,
-} from "react-icons/fa"
-import {ImMail} from "react-icons/im"
-import {IoLogoLinkedin} from "react-icons/io"
 
-import imgTeam1 from "../../../../../images/team/team1.jpg"
-import imgTeam2 from "../../../../../images/team/team2.jpg"
-import imgTeam3 from "../../../../../images/team/team3.jpg"
+import {social_network} from "./Helpers/icons"
+import {teamData} from "./Helpers/teamData"
 
 const Team = () => {
-  const sizeIcon = 50
-  const team = [
-    {
-      name: "Homero Archundia",
-      picture: imgTeam1,
-      description:
-        "Consectetur minus laborum molestiae officia, earum quidem quas. Quidem Appe is Awesome App . Officia, earum quidem quas. Quidem Appe is laborium .",
-    },
-    {
-      name: "Steven Spilbergo",
-      picture: imgTeam2,
-      description:
-        "Consectetur minus laborum molestiae officia, earum quidem quas. Quidem Appe is Awesome App . Officia, earum quidem quas. Quidem Appe is laborium .",
-    },
-    {
-      name: "Guillo del Toro",
-      picture: imgTeam3,
-      description:
-        "Consectetur minus laborum molestiae officia, earum quidem quas. Quidem Appe is Awesome App . Officia, earum quidem quas. Quidem Appe is laborium .",
-    },
-  ]
-
-  const social_network = [
-    {name: "tweeter", icon: <FaTwitterSquare size={sizeIcon} />},
-    {name: "facebook", icon: <FaFacebookSquare size={sizeIcon} />},
-    {name: "linkedin", icon: <IoLogoLinkedin size={sizeIcon} />},
-    {name: "mail", icon: <ImMail size={sizeIcon} />},
-    {name: "g_plus", icon: <FaGooglePlusSquare size={sizeIcon} />},
-    {name: "youtube", icon: <FaYoutubeSquare size={sizeIcon} />},
-    {name: "pinterest", icon: <FaPinterestSquare size={sizeIcon} />},
-    {name: "tumblr", icon: <FaTumblrSquare size={sizeIcon} />},
-  ]
-
   return (
     <section id="team" className="container team my-5">
       <div className="row">
-        {team.map((item, i) => (
+        {teamData.map((item, i) => (
           <div className="col-lg-4 px-3 px-lg-4 px-xxl-5 mb-5 mb-lg-0" key={i}>
             <div className="team__card shadow-lg p-4 mx-auto">
               <div className="row">
