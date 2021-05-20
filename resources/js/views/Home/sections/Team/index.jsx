@@ -55,7 +55,7 @@ const Team = () => {
           <div className="col-lg-4 px-3 px-lg-4 px-xxl-5 mb-5 mb-lg-0" key={i}>
             <div className="team__card shadow-lg p-4 mx-auto">
               <div className="row">
-                <div className="col-sm-4 col-xl-12">
+                <div className="col-sm-4 col-lg-12">
                   <div className="avatar mb-4  mb-lg-5">
                     <img
                       src={item.picture}
@@ -68,7 +68,7 @@ const Team = () => {
                   </h4>
                 </div>
 
-                <div className="col-sm-8 col-xl-12 flex justify-content-between ">
+                <div className="col-sm-8 col-lg-12 d-sm-flex d-lg-block flex-column justify-content-between ">
                   <p className="description mb-4">{item.description}</p>
 
                   <div className="row social__networks">

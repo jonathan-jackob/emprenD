@@ -13925,7 +13925,7 @@ header a.nav-link.active, header a.nav-link:hover {
   font-weight: bold;
 }
 .team__card .icon:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 .team__card:hover {
   background-color: #333333;
