@@ -3,12 +3,13 @@ import {Switch, BrowserRouter} from "react-router-dom"
 import ScrollToTop from "./ScrollToTop"
 import Route from "./Route"
 
-import Home from "../views/Home"
+import App from "../views/App"
 import Login from "../views/Login"
 import Register from "../views/Register"
 import Profile from "../views/Profile"
 import NotFound from "../views/NotFound"
 import SessionState from "./SessionState"
+import Home from "../views/Home"
 
 function Router() {
   return (
@@ -18,6 +19,10 @@ function Router() {
         <ScrollToTop />
 
         <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+
           <Route path="/login" redirectWithSession="/" exact>
             <Login />
           </Route>
@@ -26,8 +31,8 @@ function Router() {
             <Register />
           </Route>
 
-          <Route path="/" redirectWithoutSession="login" exact>
-            <Home />
+          <Route path="/App" redirectWithoutSession="login" exact>
+            <App />
           </Route>
 
           <Route path="/profile" redirectWithoutSession="/login" exact>

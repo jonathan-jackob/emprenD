@@ -1,42 +1,25 @@
-import React, {useEffect} from "react"
-import {useDispatch, useSelector} from "react-redux"
+import React from "react"
 
-import CommentAdd from "../../components/Comments/Add"
-import CommentViewAll from "../../components/Comments/ViewAll"
-import LayoutLight from "../../Components/Layouts/Light"
-import {getComments} from "../../redux/actions/Comments"
+import Header from "./sections/Header"
+import Banner from "./sections/Banner"
+import About from "./sections/About"
+import Services from "./sections/Services"
+import Features from "./sections/Features"
+import Team from "./sections/Team"
+import Contact from "./sections/Contact"
+import Footer from "./sections/Footer"
 
-/**
- * Muestra la pagina principal (con sesión activa)
- *
- * muestra una sección donde registrar nuevas ideas
- * muestra una lista con las ultimas 10 ideas compartidas
- */
-const Home = () => {
-  const dispatch = useDispatch()
-  const comments = useSelector((state) => state.comments)
-
-  const loadComments = () => {
-    //   se obtienen los comments mas recientes
-    dispatch(getComments())
-  }
-
-  useEffect(() => {
-    loadComments()
-  }, [])
-
-  return (
-    <LayoutLight>
-      <CommentAdd afterAddComment={loadComments} />
-
-      <CommentViewAll
-        data={comments?.data}
-        links={comments?.links}
-        optionsComment
-        afterChangeComments={loadComments}
-      />
-    </LayoutLight>
-  )
-}
+const Home = () => (
+  <>
+    <Header />
+    <Banner />
+    <About />
+    <Services />
+    <Features />
+    <Team />
+    <Contact />
+    <Footer />
+  </>
+)
 
 export default Home

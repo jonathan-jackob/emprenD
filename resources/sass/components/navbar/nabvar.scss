@@ -1,0 +1,10 @@
+header a.nav-link {
+  color: $secondary !important;
+  text-decoration: none;
+
+  &.active,
+  &:hover {
+    font-weight: bold;
+    // text-decoration: underline;
+  }
+}
