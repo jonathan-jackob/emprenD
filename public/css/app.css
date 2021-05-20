@@ -13899,6 +13899,69 @@ header a.nav-link.active, header a.nav-link:hover {
   color: #efefef;
 }
 
+.team__card .name,
+.team__card .description,
+.team__card .social__networks, .team__card {
+  transition: all 0.5s;
+}
+
+.team__card {
+  background-color: #efefef;
+  max-width: 350px;
+}
+.team__card .avatar {
+  text-align: center;
+}
+.team__card .avatar img {
+  height: 150px;
+  width: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+.team__card .name {
+  text-align: center;
+  font-weight: bold;
+}
+.team__card .icon:hover {
+  transform: scale(1.2);
+}
+.team__card:hover {
+  background-color: #333333;
+  box-shadow: none;
+}
+.team__card:hover .description {
+  color: white;
+}
+.team__card:hover .name,
+.team__card:hover .social__networks {
+  color: #fe6261;
+}
+
+@media (min-width: 576px) {
+  .team__card {
+    max-width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .team__card .avatar {
+    text-align: center;
+  }
+  .team__card .avatar img {
+    height: 200px;
+    width: 200px;
+  }
+}
+@media (min-width: 1200px) {
+  .team__card .avatar {
+    text-align: center;
+  }
+  .team__card .avatar img {
+    height: 230px;
+    width: 230px;
+  }
+}
 #app {
   min-height: 100vh;
 }

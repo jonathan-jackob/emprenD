@@ -1,9 +1,11 @@
 import React from "react"
 import {FaArrowRight} from "react-icons/fa"
 
+import aboutImg from "../../../../../images/about.jpg"
+
 const About = () => (
   <section id="about" className="about">
-    <div className="container h-100 pe-0 me-0">
+    <div className="container h-100 pe-md-0 me-md-0">
       <div className="row mx-0 h-100 ">
         <div className="col-12 col-md-6">
           <div className="about__content py-3 py-md-5">
@@ -32,7 +34,8 @@ const About = () => (
 
         <div className="col-12 col-md-6 position-relative px-0 mx-0">
           <img
-            src="https://images.unsplash.com/photo-1515965885361-f1e0095517ea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+            // src="https://images.unsplash.com/photo-1515965885361-f1e0095517ea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+            src={aboutImg}
             alt=""
             className="about__image"
           />
