@@ -9,7 +9,7 @@ import BootstrapModal from "../../../../../Modal"
 const ModalDelete = ({id, openModal, comment, afterDeleteComment}) => {
   const [loader, setLoader] = useState(false)
   const idModal = `deleteComment${id}`
-  let myModal
+  let myModal = undefined
 
   useEffect(() => {
     myModal = new Modal(document.getElementById(idModal), {

@@ -16,13 +16,10 @@ const ModalEdit = ({id, openModal, comment, afterEditComment}) => {
     register,
     handleSubmit,
     formState: {errors},
-  } = useForm({
-    defaultValues: {
-      body: comment,
-    },
-  })
+    setValue,
+  } = useForm()
 
-  let myModal
+  let myModal = undefined
 
   useEffect(() => {
     myModal = new Modal(document.getElementById(idModal), {
@@ -55,6 +52,7 @@ const ModalEdit = ({id, openModal, comment, afterEditComment}) => {
     <div>
       <span
         onClick={() => {
+          setValue("body", comment)
           myModal.show()
         }}
       >
@@ -77,6 +75,7 @@ const ModalEdit = ({id, openModal, comment, afterEditComment}) => {
                 {...register("body", {
                   required: {value: true, message: "Compártenos tu idea"},
                 })}
+                defaultValue={comment}
               ></textarea>
 
               <div className="form-text text-danger text-end">
