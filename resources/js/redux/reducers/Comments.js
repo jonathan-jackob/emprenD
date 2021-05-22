@@ -14,6 +14,7 @@ const CommentsReducer = (state = CommentsDataInit, action) => {
     case SET__USER__COMMENT: {
       let users = state?.users || []
       users.push(action.payload)
+      users = [...new Set(users)] //elimina repetidos
 
       return {...state, users}
     }

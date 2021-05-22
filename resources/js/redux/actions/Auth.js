@@ -1,5 +1,6 @@
 // import {toast} from "react-toastify"
 import {apiCall} from "../../Helpers/apiCall"
+import {SET__USER__COMMENT} from "./Comments"
 export const AuthDataInit = {}
 
 export const SET__LOGIN__SUCCESS = "SET__LOGIN__SUCCESS"
@@ -22,6 +23,7 @@ export const setLogin =
       data,
     })
       .then((response) => {
+        // icializa los datos en redux - auth
         dispatch({
           type: SET__LOGIN__SUCCESS,
           payload: response.data,

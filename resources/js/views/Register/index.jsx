@@ -18,6 +18,7 @@ const Register = () => {
     handleSubmit,
     getValues,
     formState: {errors},
+    reset,
   } = useForm({
     mode: "all",
   })
@@ -31,13 +32,14 @@ const Register = () => {
       data,
     })
       .then(() => {
+        reset()
         toast.success(
           "Registro exitoso, ya puedes iniciar sesión y compartir tus grandiosas ideas.",
-          {autoClose: 5000}
+          {autoClose: 3000}
         )
         setTimeout(() => {
           window.location.replace("/login")
-        }, 5000)
+        }, 3000)
       })
       .finally(() => {
         setLoader(false)

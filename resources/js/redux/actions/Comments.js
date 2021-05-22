@@ -39,8 +39,8 @@ export const getComments = () => (dispatch) => {
     url: "comments",
     method: "get",
   })
-    .then((response) => {
-      getUses(response, dispatch)
+    .then(async (response) => {
+      await getUses(response, dispatch)
 
       dispatch({
         type: GET__COMMENTS__SUCCESS,
@@ -78,8 +78,8 @@ export const getCommentsPaginate =
       url: url,
       method: "get",
     })
-      .then((response) => {
-        getUses(response, dispatch)
+      .then(async (response) => {
+        await getUses(response, dispatch)
 
         dispatch({
           type: GET__COMMENTS__SUCCESS,

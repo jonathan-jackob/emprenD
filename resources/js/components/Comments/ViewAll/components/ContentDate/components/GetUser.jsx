@@ -8,16 +8,26 @@ import {useSelector} from "react-redux"
  */
 const GetUser = ({id}) => {
   const {users} = useSelector((state) => state.comments)
-  const [user, setUser] = useState("usuario")
+  const auth = useSelector((state) => state.auth)
 
-  useEffect(() => {
-    users &&
+  const [user, setUser] = useState("")
+
+  const setUserFn = () => {
+    if (id === auth.id) {
+      setUser(auth.name)
+    } else if (users) {
       users.forEach((item) => {
         if (item.id == id) {
           setUser(item.name)
         }
       })
-  }, [users])
+    }
+  }
+
+  //   se ejecutal al provocarse un cambio en users u auth
+  useEffect(() => {
+    setUserFn()
+  }, [users, auth])
 
   return <span>{user}</span>
 }

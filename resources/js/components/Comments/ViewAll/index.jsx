@@ -48,7 +48,6 @@ const CommentsViewAll = ({
               {optionsComment && auth.id == comment.user_id && (
                 <div className="position-relative col-12 col-sm-1 d-flex flex-sm-column justify-content-end justify-content-sm-center">
                   <ChangeValues
-                    className=""
                     comment_id={comment.id}
                     comment={comment.body}
                     afterChangeComments={afterChangeComments}
